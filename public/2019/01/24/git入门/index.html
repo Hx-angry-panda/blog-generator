@@ -6,16 +6,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title> 常用命令行使用 | 用Hexo写博客 </title>
-	<meta property="og:title" content=" 常用命令行使用 | 用Hexo写博客 ">
-	<meta name="twitter:title" content=" 常用命令行使用 | 用Hexo写博客 ">
+	<title> git入门 | 用Hexo写博客 </title>
+	<meta property="og:title" content=" git入门 | 用Hexo写博客 ">
+	<meta name="twitter:title" content=" git入门 | 用Hexo写博客 ">
 
 	<meta property="og:type" content="article">
 	<meta name="twitter:card" content="summary">
 
-	<meta name="description" content=" 常用命令行使用 | 用Hexo写博客 ">
-	<meta property="og:description" content=" 常用命令行使用 | 用Hexo写博客 ">
-	<meta name="twitter:description" content=" 常用命令行使用 | 用Hexo写博客 ">
+	<meta name="description" content=" git入门 | 用Hexo写博客 ">
+	<meta property="og:description" content=" git入门 | 用Hexo写博客 ">
+	<meta name="twitter:description" content=" git入门 | 用Hexo写博客 ">
 
 	<link rel="icon" type="image/x-icon" href="http://yoursite.com/asset/img/favicon.png">
 
@@ -24,7 +24,7 @@
 
 	<link href="http://yoursite.com/atom.xml" title="用Hexo写博客" type="application/atom+xml" rel="alternative">
 
-	<link rel="canonical" href="/2019/01/24/常用命令行使用/index.html">
+	<link rel="canonical" href="/2019/01/24/git入门/index.html">
 
 	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.19.3/css/semantic.min.css">
 	<link rel="stylesheet" href="/asset/css/style.css">
@@ -121,18 +121,15 @@
 
 
 							<h2 class="box-content-title">
-								<a href="/2019/01/24/常用命令行使用/" itemprop="url"><span class="content-title" itemprop="name">常用命令行使用</span></a>
+								<a href="/2019/01/24/git入门/" itemprop="url"><span class="content-title" itemprop="name">git入门</span></a>
 							</h2>
 
 							<div class="content post-item-content" itemprop="articleBody">
 
-<ol>
-<li>ls 的用法：ls能查看所有目录和文件</li>
-<li>cat 的用法：cat常用来显示文件内容 eg. cat 1.txt</li>
-<li>mv 的用法： mv可用来重命名 eg. mv 1.txt 2.txt 把1.txt重命名为2.txt</li>
-<li>touch 的用法： touch可以用来创建一个文件，但无法指定内容或者更改文件的更新时间 eg. touch 1.txt 就生成了一个1.txt</li>
-</ol>
-<p>另：如果出现陌生的命令行，可以打开explainshell.com<br>    在里面输入该命令行，能看到释义及用法</p>
+<p>每个程序员都要会用git = git很重要 =必须熟练掌握git<br>先介绍三个git入门的命令</p>
+<p>##1. git init  ：<br>初始化 Git 仓库，会生成一个. git 目录，所有 Git 需要的数据和资源都存放在这个目录中。如果当前目录下有几个文件想要纳入版本控制，需要先用 git add 命令告诉 Git 开始对这些文件进行跟踪<br><img src="myBlog\img\git init用法.png" alt="init用法"></p>
+<p>##2. git add :<br>可将该文件添加到缓存<br>新项目中，添加所有文件很普遍，我们可以使用 git add . 命令来添加当前项目的所有文件。<br><img src="myBlog\img\git add用法.png" alt="add用法"></p>
+<p>##3. git commit -v<br>执行 git commit 将缓存区内容添加到仓库中。<br>git commit -v   提交时显示所有diff信息      diff用来比较两个文本文件的差异<br>使用 git commit -m “信息” 将你  git add 过的内容「正式提交」到本地仓库（.git就是本地仓库），并添加一些注释信息，方便日后查阅<br><img src="myBlog\img\git commit用法.png" alt="commit用法"></p>
 
 
 							</div>
@@ -154,11 +151,9 @@
 				<div class="box-post-nav">
 		
 
-					<a href="/2019/01/24/git入门/" title="git入门">&larr; Prev</a>
 
 
-
-					<a href="/2019/01/23/第二篇博客/" title="第二篇博客">Next &rarr;</a>
+					<a href="/2019/01/24/常用命令行使用/" title="常用命令行使用">Next &rarr;</a>
 
 
 				</div>
