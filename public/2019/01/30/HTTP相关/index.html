@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="hexo,个人博客,blog">
+  <meta name="description" content="某某的个人博客">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+  
+  <link rel="dns-prefetch" href="https://widget.daovoice.io">
+  <link rel="dns-prefetch" href="https://widget-static-cdn.daovoice.io">
+  <link rel="dns-prefetch" href="https://im.daovoice.io">
+  
+  
+  <link rel="dns-prefetch" href="https://hm.baidu.com/">
+  
+  
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  
+  <link rel="stylesheet" type="text/css" href="/./style/main.d9e3dd.css">
+	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+	<title>HTTP相关</title>
+  
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
+  </script>
+  
+  
+    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/123456.js","daovoice");daovoice('init',{app_id: "123456"});daovoice('update');
+  </script>
+  
+</head>
+<body>
+<canvas id="pattern-placeholder" height="230"></canvas>
+<div class="navbar-header">
+  <a class="blog-title" href="/">用Hexo写博客</a>
+  <a class="face-img" href="/">
+    <img src="https://tva3.sinaimg.cn/crop.0.0.200.200.180/005Kc3C1jw8f2uep0hhkvj305k05k3yk.jpg">
+  </a>
+</div>
+<main>
+  <div class="article-title">
+    
+  
+  <h1 class="title">
+    HTTP相关
+  </h1>
+  
+
+
+    <ul class="article-info">
+      <li>
+        发布
+        <time datetime="2019-01-30T14:13:51.000Z" itemprop="datePublished">2019-01-30</time>
+      </li>
+      <li>
+        
+    更新 <time datetime="2019-02-01T05:09:23.333Z" itemprop="dateUpdated">2019-02-01</time>
+
+      </li>
+      <li id="busuanzi_container_page_pv">
+        阅读 <span id="busuanzi_value_page_pv"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="article">
+      <div class="content">
+        
+        <h2 id="要点："><a href="#要点：" class="headerlink" title="要点："></a>要点：</h2><pre><code>浏览器负责发起请求
+服务器在 80 端口接收请求
+服务器负责返回内容（响应）
+浏览器负责下载响应内容
+</code></pre><h3 id="1-HTTP请求"><a href="#1-HTTP请求" class="headerlink" title="1. HTTP请求"></a>1. HTTP请求</h3><hr>
+<h4 id="1-HTTP请求最多包含四部分，最少包含三部分。（第四部分可为空）"><a href="#1-HTTP请求最多包含四部分，最少包含三部分。（第四部分可为空）" class="headerlink" title="1. HTTP请求最多包含四部分，最少包含三部分。（第四部分可为空）"></a>1. HTTP请求最多包含四部分，最少包含三部分。（第四部分可为空）</h4><h4 id="2-第三部分永远都是一个回车（-n）！"><a href="#2-第三部分永远都是一个回车（-n）！" class="headerlink" title="2. 第三部分永远都是一个回车（\n）！"></a>2. 第三部分永远都是一个回车（\n）！</h4><h4 id="3-HTTP请求的格式："><a href="#3-HTTP请求的格式：" class="headerlink" title="3. HTTP请求的格式："></a>3. HTTP请求的格式：</h4><pre><code>动词 路径 协议/版本                                 （第一部分）
+Key1: value1                                       （第二部分）
+Key2: value2                                       （第二部分）
+Key3: value3                                       （第二部分）
+Content-Type: application/x-www-form-urlencoded    （第二部分）
+Host: www.baidu.com                                （第二部分）
+User-Agent: curl/7.54.0                            （第二部分）
+                                                   （第三部分）
+要上传的数据                                        （第四部分）
+</code></pre><p>动词有 GET    POST     PUT  PATCH  DELETE  HEAD  OPTIONS 等<br>      获取  新增/上传  更新 局部更新  删除<br>这里的路径包括「查询参数」，但不包括「锚点」<br>如果你没有写路径，那么路径默认为 /<br>第二部分中的 Content-Type 标注了第四部分的格式</p>
+<hr>
+<p>请求举例：<br>   curl -s -v -H “xxx: yyy” – “<a href="https://www.baidu.com&quot;" target="_blank" rel="noopener">https://www.baidu.com&quot;</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s -v -H &quot;xxx: yyy&quot; -- &quot;https://www.baidu.com&quot;</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt;&lt;meta http-equiv=content-type content=text/html;charset=utf-8&gt;&lt;meta http-equiv=X-UA-Compatible content=IE=Edge&gt;&lt;meta content=always name=referrer&gt;&lt;link rel=stylesheet type=text/css href=https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/bdorz/baidu.min.css&gt;&lt;title&gt;百度一下，你就知道&lt;/title&gt;&lt;/head&gt; &lt;body link=#0000cc&gt; &lt;div id=wrapper&gt; &lt;div id=head&gt; &lt;div class=head_wrapper&gt; &lt;div class=s_form&gt; &lt;div class=s_form_wrapper&gt; &lt;div id=lg&gt; &lt;img hidefocus=true src=//www.baidu.com/img/bd_logo1.png width=270 height=129&gt; &lt;/div&gt; &lt;form id=form name=f action=//www.baidu.com/s class=fm&gt; &lt;input type=hidden name=bdorz_come value=1&gt; &lt;input type=hidden name=ie value=utf-8&gt; &lt;input type=hidden name=f value=8&gt; &lt;input type=hidden name=rsv_bp value=1&gt; &lt;input type=hidden name=rsv_idx value=1&gt; &lt;input type=hidden name=tn value=baidu&gt;&lt;span class=&quot;bg s_ipt_wr&quot;&gt;&lt;input id=kw name=wd class=s_ipt value maxlength=255 autocomplete=off autofocus=autofocus&gt;&lt;/span&gt;&lt;span class=&quot;bg s_btn_wr&quot;&gt;&lt;input type=submit id=su value=百度一下 class=&quot;bg s_btn&quot; autofocus&gt;&lt;/span&gt; &lt;/form&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=u1&gt; &lt;a href=http://news.baidu.com name=tj_trnews class=mnav&gt;新闻&lt;/a&gt; &lt;a href=https://www.hao123.com name=tj_trhao123 class=mnav&gt;hao123&lt;/a&gt; &lt;a href=http://map.baidu.com name=tj_trmap class=mnav&gt;地图&lt;/a&gt; &lt;a href=http://v.baidu.com name=tj_trvideo class=mnav&gt;视频&lt;/a&gt; &lt;a href=http://tieba.baidu.com name=tj_trtieba class=mnav&gt;贴吧&lt;/a&gt; &lt;noscript&gt; &lt;a href=http://www.baidu.com/bdorz/login.gif?login&amp;amp;tpl=mn&amp;amp;u=http%3A%2F%2Fwww.baidu.com%2f%3fbdorz_come%3d1 name=tj_login class=lb&gt;登录&lt;/a&gt; &lt;/noscript&gt; &lt;script&gt;document.write(&apos;&lt;a href=&quot;http://www.baidu.com/bdorz/login.gif?login&amp;tpl=mn&amp;u=&apos;+ encodeURIComponent(window.location.href+ (window.location.search === &quot;&quot; ? &quot;?&quot; : &quot;&amp;&quot;)+ &quot;bdorz_come=1&quot;)+ &apos;&quot; name=&quot;tj_login&quot; class=&quot;lb&quot;&gt;登录&lt;/a&gt;&apos;);</span><br><span class="line">                &lt;/script&gt; &lt;a href=//www.baidu.com/more/ name=tj_briicon class=bri style=&quot;display: block;&quot;&gt;更多产品&lt;/a&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=ftCon&gt; &lt;div id=ftConw&gt; &lt;p id=lh&gt; &lt;a href=http://home.baidu.com&gt;关于百度&lt;/a&gt; &lt;a href=http://ir.baidu.com&gt;About Baidu&lt;/a&gt; &lt;/p&gt; &lt;p id=cp&gt;&amp;copy;2017&amp;nbsp;Baidu&amp;nbsp;&lt;a href=http://www.baidu.com/duty/&gt;使用百度前必读&lt;/a&gt;&amp;nbsp; &lt;a href=http://jianyi.baidu.com/ class=cp-feedback&gt;意见反馈&lt;/a&gt;&amp;nbsp;京ICP证030173号&amp;nbsp; &lt;img src=//www.baidu.com/img/gs.gif&gt; &lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;</span><br><span class="line">*   Trying 14.215.177.39...</span><br><span class="line">* TCP_NODELAY set</span><br><span class="line">* Connected to www.baidu.com (14.215.177.39) port 443 (#0)</span><br><span class="line">* ALPN, offering h2</span><br><span class="line">* ALPN, offering http/1.1</span><br><span class="line">* successfully set certificate verify locations:</span><br><span class="line">*   CAfile: D:/Git/Git/mingw64/ssl/certs/ca-bundle.crt</span><br><span class="line">  CApath: none</span><br><span class="line">&#125; [5 bytes data]</span><br><span class="line">* TLSv1.3 (OUT), TLS handshake, Client hello (1):</span><br><span class="line">&#125; [512 bytes data]</span><br><span class="line">* TLSv1.3 (IN), TLS handshake, Server hello (2):</span><br><span class="line">&#123; [96 bytes data]</span><br><span class="line">* TLSv1.2 (IN), TLS handshake, Certificate (11):</span><br><span class="line">&#123; [3501 bytes data]</span><br><span class="line">* TLSv1.2 (IN), TLS handshake, Server key exchange (12):</span><br><span class="line">&#123; [333 bytes data]</span><br><span class="line">* TLSv1.2 (IN), TLS handshake, Server finished (14):</span><br><span class="line">&#123; [4 bytes data]</span><br><span class="line">* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):</span><br><span class="line">&#125; [70 bytes data]</span><br><span class="line">* TLSv1.2 (OUT), TLS change cipher, Change cipher spec (1):</span><br><span class="line">&#125; [1 bytes data]</span><br><span class="line">* TLSv1.2 (OUT), TLS handshake, Finished (20):</span><br><span class="line">&#125; [16 bytes data]</span><br><span class="line">* TLSv1.2 (IN), TLS handshake, Finished (20):</span><br><span class="line">&#123; [16 bytes data]</span><br><span class="line">* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256</span><br><span class="line">* ALPN, server accepted to use http/1.1</span><br><span class="line">* Server certificate:</span><br><span class="line">*  subject: C=CN; ST=beijing; L=beijing; OU=service operation department; O=Beijing Baidu Netcom Science Technology Co., Ltd; CN=baidu.com</span><br><span class="line">*  start date: Apr  3 03:26:03 2018 GMT</span><br><span class="line">*  expire date: May 26 05:31:02 2019 GMT</span><br><span class="line">*  subjectAltName: host &quot;www.baidu.com&quot; matched cert&apos;s &quot;*.baidu.com&quot;</span><br><span class="line">*  issuer: C=BE; O=GlobalSign nv-sa; CN=GlobalSign Organization Validation CA - SHA256 - G2</span><br><span class="line">*  SSL certificate verify ok.</span><br><span class="line">&#125; [5 bytes data]</span><br><span class="line">&gt; GET / HTTP/1.1</span><br><span class="line">&gt; Host: www.baidu.com</span><br><span class="line">&gt; User-Agent: curl/7.63.0</span><br><span class="line">&gt; Accept: */*</span><br><span class="line">&gt; xxx: yyy</span><br><span class="line">&gt;</span><br><span class="line">&#123; [5 bytes data]</span><br><span class="line">&lt; HTTP/1.1 200 OK</span><br><span class="line">&lt; Accept-Ranges: bytes</span><br><span class="line">&lt; Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform</span><br><span class="line">&lt; Connection: Keep-Alive</span><br><span class="line">&lt; Content-Length: 2443</span><br><span class="line">&lt; Content-Type: text/html</span><br><span class="line">&lt; Date: Wed, 30 Jan 2019 14:38:48 GMT</span><br><span class="line">&lt; Etag: &quot;58860402-98b&quot;</span><br><span class="line">&lt; Last-Modified: Mon, 23 Jan 2017 13:24:18 GMT</span><br><span class="line">&lt; Pragma: no-cache</span><br><span class="line">&lt; Server: bfe/1.0.8.18</span><br><span class="line">&lt; Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/</span><br><span class="line">&lt;</span><br><span class="line">&#123; [1048 bytes data]</span><br><span class="line">* Connection #0 to host www.baidu.com left intact</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>GET / HTTP/1.1<br>Host: <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>User-Agent: curl/7.63.0<br>Accept: <em>/</em><br>xxx: yyy</p>
+</blockquote>
+<p>这部分为请求内容</p>
+<hr>
+<h4 id="4-如何用Chrome开发者工具查看-HTTP-请求内容"><a href="#4-如何用Chrome开发者工具查看-HTTP-请求内容" class="headerlink" title="4.如何用Chrome开发者工具查看 HTTP 请求内容"></a>4.如何用Chrome开发者工具查看 HTTP 请求内容</h4><ol>
+<li>在Chrome上右键选择检查或者按F12后选择Network</li>
+<li>然后输入<a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a></li>
+<li><img src="/2019/01/30/HTTP相关/请求1.png" alt="请求1"></li>
+<li><img src="/2019/01/30/HTTP相关/请求2.png" alt="请求2"></li>
+<li><img src="/2019/01/30/HTTP相关/请求3.png" alt="请求3"></li>
+<li><img src="/2019/01/30/HTTP相关/请求4.png" alt="请求4"></li>
+<li><img src="/2019/01/30/HTTP相关/请求5.png" alt="请求5"></li>
+</ol>
+<hr>
+<h3 id="2-HTTP响应"><a href="#2-HTTP响应" class="headerlink" title="2. HTTP响应"></a>2. HTTP响应</h3><hr>
+<h4 id="1-GET-请求和-POST-请求对应的响应可以一样，也可以不一样"><a href="#1-GET-请求和-POST-请求对应的响应可以一样，也可以不一样" class="headerlink" title="1. GET 请求和 POST 请求对应的响应可以一样，也可以不一样"></a>1. GET 请求和 POST 请求对应的响应可以一样，也可以不一样</h4><h4 id="2-响应的第四部分可以很长很长很长"><a href="#2-响应的第四部分可以很长很长很长" class="headerlink" title="2. 响应的第四部分可以很长很长很长"></a>2. 响应的第四部分可以很长很长很长</h4><h4 id="3-响应的格式"><a href="#3-响应的格式" class="headerlink" title="3. 响应的格式"></a>3. 响应的格式</h4><pre><code>协议/版本号 状态码 状态解释            （第一部分）
+Key1: value1                         （第二部分）
+Key2: value2                         （第二部分）
+Content-Length: 17931                （第二部分）
+Content-Type: text/html              （第二部分）
+                                     （第三部分）
+要下载的内容                          （第四部分）
+</code></pre><p>状态码要背，是服务器对浏览器说的话<br>    1xx 不常用<br>    2xx 表示成功<br>    3xx 表示滚吧<br>    4xx 表示你丫错了<br>    5xx 表示好吧，我错了<br>    状态解释没什么用<br>    第 2 部分中的 Content-Type 标注了第 4 部分的格式<br>    第 2 部分中的 Content-Type 遵循 MIME 规范</p>
+<p>上述举例的响应：</p>
+<hr>
+<p>&lt; HTTP/1.1 200 OK<br>&lt; Accept-Ranges: bytes<br>&lt; Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform<br>&lt; Connection: Keep-Alive<br>&lt; Content-Length: 2443<br>&lt; Content-Type: text/html<br>&lt; Date: Wed, 30 Jan 2019 14:38:48 GMT<br>&lt; Etag: “58860402-98b”<br>&lt; Last-Modified: Mon, 23 Jan 2017 13:24:18 GMT<br>&lt; Pragma: no-cache<br>&lt; Server: bfe/1.0.8.18<br>&lt; Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/<br>&lt;</p>
+<hr>
+<h4 id="4-如何用Chrome开发者工具查看-HTTP-响应内容"><a href="#4-如何用Chrome开发者工具查看-HTTP-响应内容" class="headerlink" title="4. 如何用Chrome开发者工具查看 HTTP 响应内容"></a>4. 如何用Chrome开发者工具查看 HTTP 响应内容</h4><ol>
+<li><img src="/2019/01/30/HTTP相关/响应1.png" alt="响应1"></li>
+<li><img src="/2019/01/30/HTTP相关/响应2.png" alt="响应2"></li>
+<li><img src="/2019/01/30/HTTP相关/响应3.png" alt="响应3"></li>
+<li><img src="/2019/01/30/HTTP相关/响应4.png" alt="响应4"></li>
+<li><img src="/2019/01/30/HTTP相关/响应5.png" alt="响应5"></li>
+</ol>
+<hr>
+<h2 id="3-如何使用curl命令"><a href="#3-如何使用curl命令" class="headerlink" title="3. 如何使用curl命令"></a>3. 如何使用curl命令</h2><h3 id="curl-是一种命令行工具，作用是发出网络请求，然后获取数据，显示在”标准输出”（stdout）上面。它支持多种协议，下面列举其常用功能。"><a href="#curl-是一种命令行工具，作用是发出网络请求，然后获取数据，显示在”标准输出”（stdout）上面。它支持多种协议，下面列举其常用功能。" class="headerlink" title="curl 是一种命令行工具，作用是发出网络请求，然后获取数据，显示在”标准输出”（stdout）上面。它支持多种协议，下面列举其常用功能。"></a>curl 是一种命令行工具，作用是发出网络请求，然后获取数据，显示在”标准输出”（stdout）上面。它支持多种协议，下面列举其常用功能。</h3><ol>
+<li><p>直接在 curl 命令后加上网址，就可以看到网页源码。<br>$ curl <a href="https://www.sina.com" target="_blank" rel="noopener">https://www.sina.com</a></p>
+</li>
+<li><p>显示通信过程：-v 参数可以显示一次 http 通信的整个过程，包括端口连接和 http request 头信息。<br>如 curl -s -v -H “Frank: xxx” – “<a href="https://www.baidu.com&quot;" target="_blank" rel="noopener">https://www.baidu.com&quot;</a><br>（这里是GET）<br>-s 表示不要显示进度条<br>-v 表示要显示请求和响应，如没有 -v ，则只显示响应<br>-H 表示使用自定义 http 方法发送具有额外标头的请求</p>
+</li>
+<li><p>curl 默认的 HTTP 动词是 GET，使用 -X 参数可以支持其他动词。<br>如 curl -X POST -s -v -H “Frank: xxx” – “<a href="https://www.baidu.com&quot;" target="_blank" rel="noopener">https://www.baidu.com&quot;</a><br>（这里是POST）<br>-X 表示这个将使用指定的请求，而不是使用其他方法（默认为get）。</p>
+</li>
+<li><p>发送表单信息<br>发送表单信息有 GET 和 POST 两种方法。GET 方法相对简单，只要把数据附在网址后面就行。<br>如 curl example.com/form.cgi?data=xxx</p>
+<p> POST 方法必须把数据和网址分开，curl 就要用到 –data 或者 -d 参数。<br> 如 curl -X POST -d “1234567890” -s -v -H “Frank: xxx” – “<a href="https://www.baidu.com&quot;" target="_blank" rel="noopener">https://www.baidu.com&quot;</a><br> -d 表示data数据，为使用POST方式向server服务器发送数据 1234567890</p>
+</li>
+</ol>
+
+      </div>
+        <div class="support-author">
+          <p>感谢您的阅读。 🙏
+          <a href="https://github.com/Hx-angry-panda" target="_blank">关于转载请看这里</a>
+            <!--<a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>-->
+          </p>
+        </div>
+        <!--
+            <div class="like ">
+              <div class="like-button">
+                <a id="like-note" href="">
+                  <i class="icon-heart"></i>喜欢
+                </a>
+              </div>
+              <span id="likes-count">256</span>
+            </div>
+        -->
+        <div class="otherLink">
+          <div class="previous">
+          </div>
+          <div class="next">
+          </div>
+        </div>
+        <div class="comments" id="comments">
+          
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  const gitalk = new Gitalk({
+    clientID: '8888a8888',
+    clientSecret: '8888886666666',
+    repo: 'xxxx.github.io',
+    owner: 'admin',
+    admin: ['admin'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false
+  })
+
+  gitalk.render('comments');
+</script>
+
+
+        </div>
+      </div>
+    </div>
+   
+</main>
+<div class="footer">
+  <div class="info">
+    <p>
+    <a href="https://hexo.io"> Hexo </a> 强力驱动 |
+      <a href="https://github.com/Youthink/hexo-themes-yearn"> Yearn </a>
+      主题
+    </p>
+    <p>&copy;2013-2019 Hx-angry-panda的博客 京ICP备xxxxxx号</p>
+  </div>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>//console
+  var consoleConfig = '\n欢迎访问 https://hufangyun.com ，围观小猿大圣的博客(づ｡◕‿‿◕｡)づ！\n,\n本博客使用 %cHexo%c 搭建，博客主题为小猿大圣开发的 %chexo-themes-yearn%c ~~~ 🎉🎉🎉 \n\n源码 https://github.com/Youthink/hexo-themes-yearn \n\n如果喜欢可以 star 支持一下 ❤️~\n,\n扫描下面的二维码，在手机上查看博客！\n,https://static.hufangyun.com/blog-url-qrcode-180-180.png,\n 想知道这个效果如何实现的？博客内搜索 console 彩蛋 🚀 ！\n'.split(',');
+  var canConsole = true;
+  var consoleInfo = (function(consoleConfig) {
+  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
+    return;
+  }
+  var consoleColor = '#6190e8';
+  var _console;
+  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
+  var textStyle = 'color: ' + consoleColor + ';';
+
+  consoleConfig.map(o => {
+    var num = (o.match(/%c/g) || []).length;
+    if(/^http(s)?:\/\//.test(o)) {
+      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
+      return;
+    }
+    if (num > 0) {
+      var logArguments = [];
+      for (var i = 0; i < num; i++) {
+        if (i % 2 === 0) {
+          logArguments.push(backgroundTextStyle);
+        } else {
+          logArguments.push(textStyle);
+        }
+      }
+      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
+      return;
+    }
+    console.log('%c' + o, textStyle);
+  });
+}(consoleConfig));</script><script type="text/javascript" src="/./js/main.d9e3dd.js"></script>
+
+</body>
+</html>
