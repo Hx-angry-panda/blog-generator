@@ -1,6 +1,5 @@
----
+﻿---
 title: HTTP相关
-<<<<<<< HEAD
 date: 2019-02-03 23:52:14
 tags:
 ---
@@ -14,34 +13,17 @@ tags:
 服务器在 80 端口接收请求
 服务器负责返回内容（响应）
 浏览器负责下载响应内容
-=======
-date: 2019-01-30 22:13:51
-tags:
----
-## 要点：
-    浏览器负责发起请求
-    服务器在 80 端口接收请求
-    服务器负责返回内容（响应）
-    浏览器负责下载响应内容
-
-### 1. HTTP请求
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 
 
 ----------
 
 
-<<<<<<< HEAD
 ### 1. HTTP请求
 
 #### 1. HTTP请求最多包含四部分，最少包含三部分。（第四部分可为空）
 
 #### 2. 第三部分永远都是一个回车（\n）！
 
-=======
-#### 1. HTTP请求最多包含四部分，最少包含三部分。（第四部分可为空）
-#### 2. 第三部分永远都是一个回车（\n）！
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 #### 3. HTTP请求的格式：
     动词 路径 协议/版本                                 （第一部分）
     Key1: value1                                       （第二部分）
@@ -53,29 +35,15 @@ tags:
                                                        （第三部分）
     要上传的数据                                        （第四部分）
 
-<<<<<<< HEAD
 动词有 GET POST PUT PATCH DELETE HEAD OPTIONS 等
 获取 新增/上传 更新 局部更新 删除
-=======
-动词有 GET    POST     PUT  PATCH  DELETE  HEAD  OPTIONS 等
-      获取  新增/上传  更新 局部更新  删除
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 这里的路径包括「查询参数」，但不包括「锚点」
 如果你没有写路径，那么路径默认为 /
 第二部分中的 Content-Type 标注了第四部分的格式
 
-<<<<<<< HEAD
 请求举例：
 curl -s -v -H “xxx: yyy” – “https://www.baidu.com"
 
-=======
-
-----------
-
-
-请求举例：
-   curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 ```
 $ curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
 <!DOCTYPE html>
@@ -142,17 +110,13 @@ $ curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
 * Connection #0 to host www.baidu.com left intact
 
 ```
-<<<<<<< HEAD
 
-=======
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 > GET / HTTP/1.1
 > Host: www.baidu.com
 > User-Agent: curl/7.63.0
 > Accept: */*
 > xxx: yyy
 >
-<<<<<<< HEAD
 
 这部分为请求内容
 
@@ -164,43 +128,17 @@ $ curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
     5. ![请求3](HTTP相关/请求3.png)
     6. ![请求4](HTTP相关/请求4.png)
     7. ![请求5](HTTP相关/请求5.png)
-=======
-这部分为请求内容
-
-----------
-
-
-#### 4.如何用Chrome开发者工具查看 HTTP 请求内容
-1. 在Chrome上右键选择检查或者按F12后选择Network
-2. 然后输入https://www.baidu.com
-3. ![请求1](HTTP相关/请求1.png)
-4. ![请求2](HTTP相关/请求2.png)
-5. ![请求3](HTTP相关/请求3.png)
-6. ![请求4](HTTP相关/请求4.png)
-7. ![请求5](HTTP相关/请求5.png)
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 
 
 ----------
 
 
-<<<<<<< HEAD
 ### 2.HTTP响应
 
 #### 1. GET 请求和 POST 请求对应的响应可以一样，也可以不一样
 
 #### 2. 响应的第四部分可以很长很长很长
 
-=======
-### 2. HTTP响应
-
-
-----------
-
-
-#### 1. GET 请求和 POST 请求对应的响应可以一样，也可以不一样
-#### 2. 响应的第四部分可以很长很长很长
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 #### 3. 响应的格式
     协议/版本号 状态码 状态解释            （第一部分）
     Key1: value1                         （第二部分）
@@ -211,7 +149,6 @@ $ curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
     要下载的内容                          （第四部分）
 
 状态码要背，是服务器对浏览器说的话
-<<<<<<< HEAD
 1xx 不常用
 2xx 表示成功
 3xx 表示滚吧
@@ -223,22 +160,6 @@ $ curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
 
 上述举例的响应：
 
-=======
-    1xx 不常用
-    2xx 表示成功
-    3xx 表示滚吧
-    4xx 表示你丫错了
-    5xx 表示好吧，我错了
-    状态解释没什么用
-    第 2 部分中的 Content-Type 标注了第 4 部分的格式
-    第 2 部分中的 Content-Type 遵循 MIME 规范
-    
-上述举例的响应：
-
-----------
-
-
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 < HTTP/1.1 200 OK
 < Accept-Ranges: bytes
 < Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform
@@ -246,70 +167,40 @@ $ curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
 < Content-Length: 2443
 < Content-Type: text/html
 < Date: Wed, 30 Jan 2019 14:38:48 GMT
-<<<<<<< HEAD
 < Etag: “58860402-98b”
-=======
-< Etag: "58860402-98b"
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 < Last-Modified: Mon, 23 Jan 2017 13:24:18 GMT
 < Pragma: no-cache
 < Server: bfe/1.0.8.18
 < Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/
 <
 
-<<<<<<< HEAD
 #### 4. 如何用Chrome开发者工具查看 HTTP 响应内容
     1. ![响应1](HTTP相关/响应1.png)
     2. ![响应2](HTTP相关/响应2.png)
     3. ![响应3](HTTP相关/响应3.png)
     4. ![响应4](HTTP相关/响应4.png)
     5. ![响应5](HTTP相关/响应5.png)
-=======
-
-----------
-
-#### 4. 如何用Chrome开发者工具查看 HTTP 响应内容
-1. ![响应1](HTTP相关/响应1.png)
-2. ![响应2](HTTP相关/响应2.png)
-3. ![响应3](HTTP相关/响应3.png)
-4. ![响应4](HTTP相关/响应4.png)
-5. ![响应5](HTTP相关/响应5.png)
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 
 
 ----------
 
 
-<<<<<<< HEAD
 ### 3. 如何使用curl命令
 
 curl 是一种命令行工具，作用是发出网络请求，然后获取数据，显示在”标准输出”（stdout）上面。它支持多种协议，下面列举其常用功能。
-=======
-## 3. 如何使用curl命令
-
-### curl 是一种命令行工具，作用是发出网络请求，然后获取数据，显示在"标准输出"（stdout）上面。它支持多种协议，下面列举其常用功能。
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 
 1. 直接在 curl 命令后加上网址，就可以看到网页源码。
 $ curl https://www.sina.com
 
 2. 显示通信过程：-v 参数可以显示一次 http 通信的整个过程，包括端口连接和 http request 头信息。
-<<<<<<< HEAD
 如 curl -s -v -H “Frank: xxx” – “https://www.baidu.com"
-=======
-如 curl -s -v -H "Frank: xxx" -- "https://www.baidu.com"
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 （这里是GET）
 -s 表示不要显示进度条
 -v 表示要显示请求和响应，如没有 -v ，则只显示响应
 -H 表示使用自定义 http 方法发送具有额外标头的请求
 
 3. curl 默认的 HTTP 动词是 GET，使用 -X 参数可以支持其他动词。
-<<<<<<< HEAD
 如 curl -X POST -s -v -H “Frank: xxx” – “https://www.baidu.com"
-=======
-如 curl -X POST -s -v -H "Frank: xxx" -- "https://www.baidu.com" 
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
 （这里是POST）
 -X 表示这个将使用指定的请求，而不是使用其他方法（默认为get）。
 
@@ -317,14 +208,6 @@ $ curl https://www.sina.com
 发送表单信息有 GET 和 POST 两种方法。GET 方法相对简单，只要把数据附在网址后面就行。
 如 curl example.com/form.cgi?data=xxx
 
-<<<<<<< HEAD
 POST 方法必须把数据和网址分开，curl 就要用到 –data 或者 -d 参数。
 如 curl -X POST -d “1234567890” -s -v -H “Frank: xxx” – “https://www.baidu.com"
 -d 表示data数据，为使用POST方式向server服务器发送数据 1234567890
-=======
-    POST 方法必须把数据和网址分开，curl 就要用到 --data 或者 -d 参数。
-    如 curl -X POST -d "1234567890" -s -v -H "Frank: xxx" -- "https://www.baidu.com"
-    -d 表示data数据，为使用POST方式向server服务器发送数据 1234567890
-
-
->>>>>>> c94eb4201623f5a6ecc33490cf96aea27e8c963a
