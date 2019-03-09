@@ -121,13 +121,13 @@ $ curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
 这部分为请求内容
 
 #### 4. 如何用Chrome开发者工具查看 HTTP 请求内容
-    1. 在Chrome上右键选择检查或者按F12后选择Network
-    2. 然后输入https://www.baidu.com
-    3. ![请求1](HTTP相关/请求1.png)
-    4. ![请求2](HTTP相关/请求2.png)
-    5. ![请求3](HTTP相关/请求3.png)
-    6. ![请求4](HTTP相关/请求4.png)
-    7. ![请求5](HTTP相关/请求5.png)
+1. 在Chrome上右键选择检查或者按F12后选择Network
+2. 然后输入https://www.baidu.com
+3. ![请求1](HTTP相关/请求1.png)
+4. ![请求2](HTTP相关/请求2.png)
+5. ![请求3](HTTP相关/请求3.png)
+6. ![请求4](HTTP相关/请求4.png)
+7. ![请求5](HTTP相关/请求5.png)
 
 
 ----------
@@ -175,11 +175,11 @@ $ curl -s -v -H "xxx: yyy" -- "https://www.baidu.com"
 <
 
 #### 4. 如何用Chrome开发者工具查看 HTTP 响应内容
-    1. ![响应1](HTTP相关/响应1.png)
-    2. ![响应2](HTTP相关/响应2.png)
-    3. ![响应3](HTTP相关/响应3.png)
-    4. ![响应4](HTTP相关/响应4.png)
-    5. ![响应5](HTTP相关/响应5.png)
+1. ![响应1](HTTP相关/响应1.png)
+2. ![响应2](HTTP相关/响应2.png)
+3. ![响应3](HTTP相关/响应3.png)
+4. ![响应4](HTTP相关/响应4.png)
+5. ![响应5](HTTP相关/响应5.png)
 
 
 ----------

@@ -59,7 +59,7 @@
       </li>
       <li>
         
-    更新 <time datetime="2019-02-03T16:31:16.599Z" itemprop="dateUpdated">2019-02-04</time>
+    更新 <time datetime="2019-02-17T07:21:41.728Z" itemprop="dateUpdated">2019-02-17</time>
 
       </li>
       <li id="busuanzi_container_page_pv">
@@ -90,14 +90,16 @@ User-Agent: curl/7.54.0                            （第二部分）
 <p>GET / HTTP/1.1<br>Host: <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>User-Agent: curl/7.63.0<br>Accept: <em>/</em><br>xxx: yyy</p>
 </blockquote>
 <p>这部分为请求内容</p>
-<h4 id="4-如何用Chrome开发者工具查看-HTTP-请求内容"><a href="#4-如何用Chrome开发者工具查看-HTTP-请求内容" class="headerlink" title="4. 如何用Chrome开发者工具查看 HTTP 请求内容"></a>4. 如何用Chrome开发者工具查看 HTTP 请求内容</h4><pre><code>1. 在Chrome上右键选择检查或者按F12后选择Network
-2. 然后输入https://www.baidu.com
-3. ![请求1](HTTP相关/请求1.png)
-4. ![请求2](HTTP相关/请求2.png)
-5. ![请求3](HTTP相关/请求3.png)
-6. ![请求4](HTTP相关/请求4.png)
-7. ![请求5](HTTP相关/请求5.png)
-</code></pre><hr>
+<h4 id="4-如何用Chrome开发者工具查看-HTTP-请求内容"><a href="#4-如何用Chrome开发者工具查看-HTTP-请求内容" class="headerlink" title="4. 如何用Chrome开发者工具查看 HTTP 请求内容"></a>4. 如何用Chrome开发者工具查看 HTTP 请求内容</h4><ol>
+<li>在Chrome上右键选择检查或者按F12后选择Network</li>
+<li>然后输入<a href="https://www.baidu.com" target="_blank" rel="noopener">https://www.baidu.com</a></li>
+<li><img src="/2019/02/03/HTTP相关/请求1.png" alt="请求1"></li>
+<li><img src="/2019/02/03/HTTP相关/请求2.png" alt="请求2"></li>
+<li><img src="/2019/02/03/HTTP相关/请求3.png" alt="请求3"></li>
+<li><img src="/2019/02/03/HTTP相关/请求4.png" alt="请求4"></li>
+<li><img src="/2019/02/03/HTTP相关/请求5.png" alt="请求5"></li>
+</ol>
+<hr>
 <h3 id="2-HTTP响应"><a href="#2-HTTP响应" class="headerlink" title="2.HTTP响应"></a>2.HTTP响应</h3><h4 id="1-GET-请求和-POST-请求对应的响应可以一样，也可以不一样"><a href="#1-GET-请求和-POST-请求对应的响应可以一样，也可以不一样" class="headerlink" title="1. GET 请求和 POST 请求对应的响应可以一样，也可以不一样"></a>1. GET 请求和 POST 请求对应的响应可以一样，也可以不一样</h4><h4 id="2-响应的第四部分可以很长很长很长"><a href="#2-响应的第四部分可以很长很长很长" class="headerlink" title="2. 响应的第四部分可以很长很长很长"></a>2. 响应的第四部分可以很长很长很长</h4><h4 id="3-响应的格式"><a href="#3-响应的格式" class="headerlink" title="3. 响应的格式"></a>3. 响应的格式</h4><pre><code>协议/版本号 状态码 状态解释            （第一部分）
 Key1: value1                         （第二部分）
 Key2: value2                         （第二部分）
@@ -108,12 +110,14 @@ Content-Type: text/html              （第二部分）
 </code></pre><p>状态码要背，是服务器对浏览器说的话<br>1xx 不常用<br>2xx 表示成功<br>3xx 表示滚吧<br>4xx 表示你丫错了<br>5xx 表示好吧，我错了<br>状态解释没什么用<br>第 2 部分中的 Content-Type 标注了第 4 部分的格式<br>第 2 部分中的 Content-Type 遵循 MIME 规范</p>
 <p>上述举例的响应：</p>
 <p>&lt; HTTP/1.1 200 OK<br>&lt; Accept-Ranges: bytes<br>&lt; Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform<br>&lt; Connection: Keep-Alive<br>&lt; Content-Length: 2443<br>&lt; Content-Type: text/html<br>&lt; Date: Wed, 30 Jan 2019 14:38:48 GMT<br>&lt; Etag: “58860402-98b”<br>&lt; Last-Modified: Mon, 23 Jan 2017 13:24:18 GMT<br>&lt; Pragma: no-cache<br>&lt; Server: bfe/1.0.8.18<br>&lt; Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/<br>&lt;</p>
-<h4 id="4-如何用Chrome开发者工具查看-HTTP-响应内容"><a href="#4-如何用Chrome开发者工具查看-HTTP-响应内容" class="headerlink" title="4. 如何用Chrome开发者工具查看 HTTP 响应内容"></a>4. 如何用Chrome开发者工具查看 HTTP 响应内容</h4><pre><code>1. ![响应1](HTTP相关/响应1.png)
-2. ![响应2](HTTP相关/响应2.png)
-3. ![响应3](HTTP相关/响应3.png)
-4. ![响应4](HTTP相关/响应4.png)
-5. ![响应5](HTTP相关/响应5.png)
-</code></pre><hr>
+<h4 id="4-如何用Chrome开发者工具查看-HTTP-响应内容"><a href="#4-如何用Chrome开发者工具查看-HTTP-响应内容" class="headerlink" title="4. 如何用Chrome开发者工具查看 HTTP 响应内容"></a>4. 如何用Chrome开发者工具查看 HTTP 响应内容</h4><ol>
+<li><img src="/2019/02/03/HTTP相关/响应1.png" alt="响应1"></li>
+<li><img src="/2019/02/03/HTTP相关/响应2.png" alt="响应2"></li>
+<li><img src="/2019/02/03/HTTP相关/响应3.png" alt="响应3"></li>
+<li><img src="/2019/02/03/HTTP相关/响应4.png" alt="响应4"></li>
+<li><img src="/2019/02/03/HTTP相关/响应5.png" alt="响应5"></li>
+</ol>
+<hr>
 <h3 id="3-如何使用curl命令"><a href="#3-如何使用curl命令" class="headerlink" title="3. 如何使用curl命令"></a>3. 如何使用curl命令</h3><p>curl 是一种命令行工具，作用是发出网络请求，然后获取数据，显示在”标准输出”（stdout）上面。它支持多种协议，下面列举其常用功能。</p>
 <ol>
 <li><p>直接在 curl 命令后加上网址，就可以看到网页源码。<br>$ curl <a href="https://www.sina.com" target="_blank" rel="noopener">https://www.sina.com</a></p>
