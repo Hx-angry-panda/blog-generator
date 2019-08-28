@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="hexo,个人博客,blog">
+  <meta name="description" content="某某的个人博客">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+  
+  <link rel="dns-prefetch" href="https://widget.daovoice.io">
+  <link rel="dns-prefetch" href="https://widget-static-cdn.daovoice.io">
+  <link rel="dns-prefetch" href="https://im.daovoice.io">
+  
+  
+  <link rel="dns-prefetch" href="https://hm.baidu.com/">
+  
+  
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  
+  <link rel="stylesheet" type="text/css" href="/./style/main.d9e3dd.css">
+	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+	<title>原型与原型链</title>
+  
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
+  </script>
+  
+  
+    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/123456.js","daovoice");daovoice('init',{app_id: "123456"});daovoice('update');
+  </script>
+  
+</head>
+<body>
+<canvas id="pattern-placeholder" height="230"></canvas>
+<div class="navbar-header">
+  <a class="blog-title" href="/">用Hexo写博客</a>
+  <a class="face-img" href="/">
+    <img src="https://tva3.sinaimg.cn/crop.0.0.200.200.180/005Kc3C1jw8f2uep0hhkvj305k05k3yk.jpg">
+  </a>
+</div>
+<main>
+  <div class="article-title">
+    
+  
+  <h1 class="title">
+    原型与原型链
+  </h1>
+  
+
+
+    <ul class="article-info">
+      <li>
+        发布
+        <time datetime="2019-04-14T05:19:33.000Z" itemprop="datePublished">2019-04-14</time>
+      </li>
+      <li>
+        
+    更新 <time datetime="2019-04-14T07:25:51.041Z" itemprop="dateUpdated">2019-04-14</time>
+
+      </li>
+      <li id="busuanzi_container_page_pv">
+        阅读 <span id="busuanzi_value_page_pv"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="article">
+      <div class="content">
+        
+        <blockquote>
+<h3 id="当谈到继承时，JavaScript-只有一种结构：对象。每个实例对象（-object-）都有一个私有属性（称之为-proto-）指向它的原型对象（-prototype-）。该原型对象也有一个自己的原型对象-proto-，层层向上直到一个对象的原型对象为-null。根据定义，null-没有原型，并作为这个原型链中的最后一个环节。"><a href="#当谈到继承时，JavaScript-只有一种结构：对象。每个实例对象（-object-）都有一个私有属性（称之为-proto-）指向它的原型对象（-prototype-）。该原型对象也有一个自己的原型对象-proto-，层层向上直到一个对象的原型对象为-null。根据定义，null-没有原型，并作为这个原型链中的最后一个环节。" class="headerlink" title="当谈到继承时，JavaScript 只有一种结构：对象。每个实例对象（ object ）都有一个私有属性（称之为 __proto__ ）指向它的原型对象（ prototype ）。该原型对象也有一个自己的原型对象( __proto__ ) ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。"></a>当谈到继承时，JavaScript 只有一种结构：对象。每个实例对象（ object ）都有一个私有属性（称之为 __proto__ ）指向它的原型对象（ prototype ）。该原型对象也有一个自己的原型对象( __proto__ ) ，层层向上直到一个对象的原型对象为 null。根据定义，null 没有原型，并作为这个原型链中的最后一个环节。</h3></blockquote>
+<hr>
+<p>举例来说，现在有一个叫做DOG的构造函数，表示狗对象的原型。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function DOG(name)&#123;</span><br><span class="line"></span><br><span class="line">this.name = name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对这个构造函数使用new，就会生成一个狗对象的实例。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">var dogA = new DOG(&apos;大毛&apos;);</span><br><span class="line"></span><br><span class="line">alert(dogA.name); // 大毛</span><br></pre></td></tr></table></figure></p>
+<p><strong>用构造函数生成实例对象，有一个缺点，那就是无法共享属性和方法。</strong></p>
+<p>考虑到这一点，Brendan Eich决定为构造函数设置一个prototype属性。</p>
+<p>这个属性包含一个对象（以下简称”prototype对象”），所有实例对象需要共享的属性和方法，都放在这个对象里面；那些不需要共享的属性和方法，就放在构造函数里面。</p>
+<p>实例对象一旦创建，将自动引用prototype对象的属性和方法。也就是说，实例对象的属性和方法，分成两种，一种是本地的，另一种是引用的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function DOG(name)&#123;</span><br><span class="line">    this.name = name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DOG.prototype = &#123; species : &apos;犬科&apos; &#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var dogA = new DOG(&apos;大毛&apos;);</span><br><span class="line"></span><br><span class="line">var dogB = new DOG(&apos;二毛&apos;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">alert(dogA.species); // 犬科</span><br><span class="line"></span><br><span class="line">alert(dogB.species); // 犬科</span><br></pre></td></tr></table></figure>
+<p><strong>现在，species属性放在prototype对象里，是两个实例对象共享的。只要修改了prototype对象，就会同时影响到两个实例对象。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">DOG.prototype.species = &apos;猫科&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">alert(dogA.species); // 猫科</span><br><span class="line"></span><br><span class="line">alert(dogB.species); // 猫科</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="笔记"><a href="#笔记" class="headerlink" title="笔记"></a>笔记</h4><blockquote>
+<p><strong>1.每个对象都具有一个名为__proto__的属性；</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>2.每个构造函数（构造函数标准为大写开头，如Function()，Object()等等JS中自带的构造函数，以及自己创建的）都具有一个名为prototype的方法（注意：既然是方法，那么就是一个对象（JS中函数同样是对象），所以prototype同样带有__proto__属性）；</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>3.每个对象的__proto__属性指向自身构造函数的prototype；</strong></p>
+</blockquote>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">function Fun()&#123;&#125;</span><br><span class="line">//            我创造了一个函数Fn</span><br><span class="line">//            这个函数由Function生成（Function作为构造函数）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">var fn=new Fun()</span><br><span class="line">//            我创建了一个函数fn</span><br><span class="line">//            这个函数由Fn生成（Fn作为构造函数)</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">console.log(fn.__proto__ === Fun.prototype)    //true</span><br><span class="line">//            fn的__proto__指向其构造函数Fun的prototype</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(Fun.__proto__ === Function.prototype)        //true</span><br><span class="line">//            Fun的__proto__指向其构造函数Function的prototype</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(Function.__proto__ === Function.prototype)    //true</span><br><span class="line">//            Function的__proto__指向其构造函数Function的prototype</span><br><span class="line">//            构造函数自身是一个函数，他是被自身构造的</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(Function.prototype.__proto__ === Object.prototype)    //true</span><br><span class="line">//            Function.prototype的__proto__指向其构造函数Object的prototype</span><br><span class="line">//            Function.prototype是一个对象,同样是一个方法,方法是函数,所以它必须有自己的构造函数也就是Object</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(Fun.prototype.__proto__ === Object.prototype)         //true</span><br><span class="line">//             与上条相同</span><br><span class="line">//             此处可以知道一点,所有构造函数的的prototype方法的__都指向__Object.prototype(除了....Object.prototype自身)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(Object.__proto__ === Function.prototype)        //true</span><br><span class="line">//            Object作为一个构造函数(是一个函数对象!!函数对象!!),所以他的__proto__指向Function.prototype</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(Object.prototype.__proto__ === null)        //true</span><br><span class="line">//            Object.prototype作为一切的源头,他的__proto__是null</span><br></pre></td></tr></table></figure>
+<hr>
+<p>下面是一个新的,额外的例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;&#125;</span><br><span class="line">//            创建了一个obj</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__ === Object.prototype)        //true</span><br><span class="line">//            obj作为一个直接以字面量创建的对象，所以obj__proto__直接指向了Object.prototype，而不需要经过Function了！！</span><br><span class="line"></span><br><span class="line">//            下面是根据原型链延伸的内容</span><br><span class="line">//            还有一个上文并未提到的constructor,  constructor在原型链中,是作为对象prototypr的一个属性存在的,它指向构造函数（由于主要讲原型链，这个就没在意、）；</span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__.__proto__ === null)        //true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__.constructor === Object)        //true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__.constructor.__proto__ === Function.prototype)        //true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__.constructor.__proto__.__proto__ === Object.prototype)    //true </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__.constructor.__proto__.__proto__.__proto__ === null)        //true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">console.log(obj.__proto__.constructor.__proto__.__proto__.constructor.__proto__ === Function.prototype)    //true</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">//            以上，有兴趣的可以一一验证　　F12搞起.</span><br></pre></td></tr></table></figure></p>
+<hr>
+<blockquote>
+<p>节选自<br><a href="http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/06/designing_ideas_of_inheritance_mechanism_in_javascript.html</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Inheritance_and_the_prototype_chain</a><br><a href="https://www.cnblogs.com/az96/p/6014621.html" target="_blank" rel="noopener">https://www.cnblogs.com/az96/p/6014621.html</a></p>
+</blockquote>
+
+      </div>
+        <div class="support-author">
+          <p>感谢您的阅读。 🙏
+          <a href="https://888.com/index.html" target="_blank">关于转载请看这里</a>
+            <!--<a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>-->
+          </p>
+        </div>
+        <!--
+            <div class="like ">
+              <div class="like-button">
+                <a id="like-note" href="">
+                  <i class="icon-heart"></i>喜欢
+                </a>
+              </div>
+              <span id="likes-count">256</span>
+            </div>
+        -->
+        <div class="otherLink">
+          <div class="previous">
+          </div>
+          <div class="next">
+          </div>
+        </div>
+        <div class="comments" id="comments">
+          
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  const gitalk = new Gitalk({
+    clientID: '8888a8888',
+    clientSecret: '8888886666666',
+    repo: 'xxxx.github.io',
+    owner: 'admin',
+    admin: ['admin'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false
+  })
+
+  gitalk.render('comments');
+</script>
+
+
+        </div>
+      </div>
+    </div>
+   
+</main>
+<div class="footer">
+  <div class="info">
+    <p>
+    <a href="https://hexo.io"> Hexo </a> 强力驱动 |
+      <a href="https://github.com/Youthink/hexo-themes-yearn"> Yearn </a>
+      主题
+    </p>
+    <p>&copy;2013-2018 某某的博客 京ICP备xxxxxx号</p>
+  </div>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>//console
+  var consoleConfig = '\n欢迎访问 https://hufangyun.com ，围观小猿大圣的博客(づ｡◕‿‿◕｡)づ！\n,\n本博客使用 %cHexo%c 搭建，博客主题为小猿大圣开发的 %chexo-themes-yearn%c ~~~ 🎉🎉🎉 \n\n源码 https://github.com/Youthink/hexo-themes-yearn \n\n如果喜欢可以 star 支持一下 ❤️~\n,\n扫描下面的二维码，在手机上查看博客！\n,https://static.hufangyun.com/blog-url-qrcode-180-180.png,\n 想知道这个效果如何实现的？博客内搜索 console 彩蛋 🚀 ！\n'.split(',');
+  var canConsole = true;
+  var consoleInfo = (function(consoleConfig) {
+  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
+    return;
+  }
+  var consoleColor = '#6190e8';
+  var _console;
+  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
+  var textStyle = 'color: ' + consoleColor + ';';
+
+  consoleConfig.map(o => {
+    var num = (o.match(/%c/g) || []).length;
+    if(/^http(s)?:\/\//.test(o)) {
+      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
+      return;
+    }
+    if (num > 0) {
+      var logArguments = [];
+      for (var i = 0; i < num; i++) {
+        if (i % 2 === 0) {
+          logArguments.push(backgroundTextStyle);
+        } else {
+          logArguments.push(textStyle);
+        }
+      }
+      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
+      return;
+    }
+    console.log('%c' + o, textStyle);
+  });
+}(consoleConfig));</script><script type="text/javascript" src="/./js/main.d9e3dd.js"></script>
+
+</body>
+</html>

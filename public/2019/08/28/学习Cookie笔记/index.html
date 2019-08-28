@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="keywords" content="hexo,个人博客,blog">
+  <meta name="description" content="某某的个人博客">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="dns-prefetch" href="https://busuanzi.ibruce.info">
+  
+  <link rel="dns-prefetch" href="https://widget.daovoice.io">
+  <link rel="dns-prefetch" href="https://widget-static-cdn.daovoice.io">
+  <link rel="dns-prefetch" href="https://im.daovoice.io">
+  
+  
+  <link rel="dns-prefetch" href="https://hm.baidu.com/">
+  
+  
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://api.github.com">
+  <link rel="dns-prefetch" href="https://avatars3.githubusercontent.com">
+  
+  <link rel="stylesheet" type="text/css" href="/./style/main.d9e3dd.css">
+	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+	<title>学习Cookie笔记</title>
+  
+  <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
+  </script>
+  
+  
+    <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/123456.js","daovoice");daovoice('init',{app_id: "123456"});daovoice('update');
+  </script>
+  
+</head>
+<body>
+<canvas id="pattern-placeholder" height="230"></canvas>
+<div class="navbar-header">
+  <a class="blog-title" href="/">用Hexo写博客</a>
+  <a class="face-img" href="/">
+    <img src="https://tva3.sinaimg.cn/crop.0.0.200.200.180/005Kc3C1jw8f2uep0hhkvj305k05k3yk.jpg">
+  </a>
+</div>
+<main>
+  <div class="article-title">
+    
+  
+  <h1 class="title">
+    学习Cookie笔记
+  </h1>
+  
+
+
+    <ul class="article-info">
+      <li>
+        发布
+        <time datetime="2019-08-28T11:45:31.000Z" itemprop="datePublished">2019-08-28</time>
+      </li>
+      <li>
+        
+    更新 <time datetime="2019-08-28T12:14:03.348Z" itemprop="dateUpdated">2019-08-28</time>
+
+      </li>
+      <li id="busuanzi_container_page_pv">
+        阅读 <span id="busuanzi_value_page_pv"></span>
+      </li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="article">
+      <div class="content">
+        
+        <h1 id="1-概述"><a href="#1-概述" class="headerlink" title="1. 概述"></a>1. 概述</h1><hr>
+<p>Cookie 是服务器保存在浏览器的一小段文本信息，每个 Cookie 的大小一般不能超过4KB。浏览器每次向服务器发出请求，就会自动附上这段信息。</p>
+<p>Cookie 主要用来分辨两个请求是否来自同一个浏览器，以及用来保存一些状态信息。</p>
+<p>它的常用场合有以下一些。</p>
+<ul>
+<li>对话（session）管理：保存登录、购物车等需要记录的信息。</li>
+<li>个性化：保存用户的偏好，比如网页的字体大小、背景色等等。</li>
+<li>追踪：记录和分析用户行为。</li>
+</ul>
+<p>Cookie 包含以下几方面的信息。</p>
+<ul>
+<li>Cookie 的名字</li>
+<li>Cookie 的值（真正的数据写在这里面）</li>
+<li>到期时间</li>
+<li>所属域名（默认是当前域名）</li>
+<li>生效的路径（默认是当前网址</li>
+</ul>
+<p>）</p>
+<h1 id="2-原理"><a href="#2-原理" class="headerlink" title="2.原理"></a>2.原理</h1><hr>
+<p><img src="/2019/08/28/学习Cookie笔记/cookie1.png" alt="cookie原理"></p>
+<h1 id="3-cookie不可跨域"><a href="#3-cookie不可跨域" class="headerlink" title="3. cookie不可跨域"></a>3. cookie不可跨域</h1><hr>
+<p>当我打开百度的网页，我要设置一个cookie的时候，我的指令如下</p>
+<pre><code>document.cookie=&apos;myname=hua;path=/;domain=.baidu.com&apos;;
+document.cookie=&apos;myname=hua;path=/;domain=.google.com&apos;;
+</code></pre><p>当我将这两个语句都放到浏览器控制台运行的时候<br><img src="/2019/08/28/学习Cookie笔记/cookie2.png" alt="cookie不可跨域"></p>
+<p>你会发现一点,注意，上面两个cookie的值是不相同的，看清楚<br><img src="/2019/08/28/学习Cookie笔记/cookie3.png" alt="cookie不可跨域"></p>
+<h1 id="4-Cookie-的生成"><a href="#4-Cookie-的生成" class="headerlink" title="4. Cookie 的生成"></a>4. Cookie 的生成</h1><hr>
+<p>服务器如果希望在浏览器保存 Cookie，就要在 HTTP 回应的头信息里面，放置一个Set-Cookie字段。</p>
+<pre><code>Set-Cookie:foo=bar
+</code></pre><p>上面代码会在浏览器保存一个名为 <strong>foo</strong> 的 Cookie，它的值为 <strong>bar</strong>。</p>
+<p>HTTP 响应可以包含多个 <strong>Set-Cookie</strong> 字段，即在浏览器生成多个 Cookie。</p>
+<pre><code>HTTP/1.0 200 OK
+Content-type: text/html
+Set-Cookie: yummy_cookie=choco
+Set-Cookie: tasty_cookie=strawberry
+
+[page content]
+</code></pre><h1 id="5-cookie-的属性"><a href="#5-cookie-的属性" class="headerlink" title="5.cookie 的属性"></a>5.cookie 的属性</h1><hr>
+<p><img src="/2019/08/28/学习Cookie笔记/cookie4.png" alt="cookie的属性"></p>
+<p>一个 <strong>Set-Cookie</strong> 字段里面，可以同时包括多个属性，没有次序的要求。</p>
+<ol>
+<li><p>name<br>这个显而易见，就是代表cookie的名字的意思，一个域名下绑定的cookie，name不能相同，相同的name的值会被覆盖掉。</p>
+</li>
+<li><p>value<br>它表示cookie的值</p>
+</li>
+<li><p>domain<br><strong>Domain</strong> 属性指定浏览器发出 HTTP 请求时，哪些域名要附带这个 Cookie。如果没有指定该属性，浏览器会默认将其设为当前域名，这时子域名将不会附带这个 Cookie。比如，<strong>example.com</strong> 不设置 Cookie 的domain属性，那么 <strong>sub.example.com</strong> 将不会附带这个 Cookie。如果指定了domain属性，那么子域名也会附带这个 Cookie。如果服务器指定的域名不属于当前域名，浏览器会拒绝这个 Cookie。</p>
+</li>
+<li><p>path<br><strong>Path</strong> 属性指定浏览器发出 HTTP 请求时，哪些路径要附带这个 Cookie。只要浏览器发现，<strong>Path</strong> 属性是 HTTP 请求路径的开头一部分，就会在头信息里面带上这个 Cookie。比如，<strong>PATH</strong> 属性是 <strong>/</strong>，那么请求 <strong>/docs</strong> 路径也会包含该 Cookie。当然，前提是域名必须一致。</p>
+</li>
+<li><p>cookie的有效期<br>什么是有效期，就是图中的 <strong>Expires</strong> 属性，一般浏览器的cookie都是默认储存的，当关闭浏览器结束这个会话的时候，这个cookie也就会被删除，这就是上图中的—— <strong>session</strong> (会话储存)。<br>如果你想要cookie存在一段时间，那么你可以通过设置 <strong>Expires</strong> 属性为未来的一个时间节点，<strong>Expires</strong> 这个是代表当前时间的，这个属性已经逐渐被我们下面这个主人公所取代—— <strong>Max-Age</strong><br><strong>Max-Age</strong> 属性指定从现在开始 Cookie 存在的秒数，比如60 <em> 60 </em> 24 * 365（即一年）。过了这个时间以后，浏览器就不再保留这个 Cookie。因为cookie机制本身没有设置删除cookie，失效的cookie会被浏览器自动从内存中删除，所以，它实现的就是让cookie失效。如果Set-Cookie字段没有指定 <strong>Expires</strong> 或 <strong>Max-Age</strong> 属性，那么这个 Cookie 就是 Session Cookie，即它只在本次对话存在，一旦用户关闭浏览器，浏览器就不会再保留这个 Cookie。</p>
+</li>
+<li><p>secure<br><strong>Secure</strong> 属性指定浏览器只有在加密协议 HTTPS 下，才能将这个 Cookie 发送到服务器。另一方面，如果当前协议是 HTTP，浏览器会自动忽略服务器发来的 <strong>Secure</strong> 属性。该属性只是一个开关，不需要指定值。如果通信是 HTTPS 协议，该开关自动打开。</p>
+</li>
+<li><p>HttpOnly<br><strong>HttpOnly</strong> 属性指定该 Cookie 无法通过 JavaScript 脚本拿到，主要是 <strong>document.cookie</strong> 属性、<strong>XMLHttpRequest</strong> 对象和 <strong>Request API</strong>  都拿不到该属性。这样就防止了该 Cookie 被脚本读到，只有浏览器发出 HTTP 请求时，才会带上该 Cookie。</p>
+</li>
+</ol>
+<h1 id="6-读写当前网页的-cookie"><a href="#6-读写当前网页的-cookie" class="headerlink" title="6. 读写当前网页的 cookie"></a>6. 读写当前网页的 cookie</h1><hr>
+<p><strong>document.cookie</strong> 属性用于读写当前网页的 Cookie。<br>读取的时候，它会返回当前网页的所有 Cookie，前提是该 Cookie 不能有<strong>HTTPOnly</strong>属性。</p>
+<pre><code>document.cookie // &quot;foo=bar;baz=bar&quot;
+</code></pre><p>上面代码从 <strong>document.cookie</strong> 一次性读出两个 Cookie，它们之间使用分号分隔。必须手动还原，才能取出每一个 Cookie 的值。</p>
+<pre><code>var cookies = document.cookie.split(&apos;;&apos;);
+
+for (var i = 0; i &lt; cookies.length; i++) {
+  console.log(cookies[i]);
+}
+// foo=bar
+// baz=bar
+</code></pre><p><strong>document.cookie</strong> 属性是可写的，可以通过它为当前网站添加 Cookie。</p>
+<pre><code>document.cookie = &apos;fontSize=14&apos;;
+</code></pre><p>写入的时候，Cookie 的值必须写成 <strong>key=value</strong> 的形式。注意，等号两边不能有空格。另外，写入 Cookie 的时候，必须对分号、逗号和空格进行转义（它们都不允许作为 Cookie 的值），这可以用 <strong>encodeURIComponent</strong> 方法达到。</p>
+<p>但是，<strong>document.cookie</strong> 一次只能写入一个 Cookie，而且写入并不是覆盖，而是添加。<br><strong>document.cookie</strong> 读写行为的差异（一次可以读出全部 Cookie，但是只能写入一个 Cookie），与 HTTP 协议的 Cookie 通信格式有关。浏览器向服务器发送 Cookie 的时候，<strong>Cookie</strong> 字段是使用一行将所有 Cookie 全部发送；服务器向浏览器设置 Cookie 的时候，<strong>Set-Cookie</strong> 字段是一行设置一个 Cookie。</p>
+<h1 id="7-Cookie-存在的问题"><a href="#7-Cookie-存在的问题" class="headerlink" title="7. Cookie 存在的问题"></a>7. Cookie 存在的问题</h1><hr>
+<p><img src="/2019/08/28/学习Cookie笔记/cookie5.png" alt="Cookie存在的问题"><br><img src="/2019/08/28/学习Cookie笔记/cookie6.png" alt="Cookie存在的问题"></p>
+<p>用户可以随意篡改 Cookie</p>
+<p>比如我打开百度的首页，查看 cookie，并修改。</p>
+<p>双击更改属性</p>
+
+      </div>
+        <div class="support-author">
+          <p>感谢您的阅读。 🙏
+          <a href="https://888.com/index.html" target="_blank">关于转载请看这里</a>
+            <!--<a class="btn-pay"  href="#pay-modal">¥ 打赏支持</a>-->
+          </p>
+        </div>
+        <!--
+            <div class="like ">
+              <div class="like-button">
+                <a id="like-note" href="">
+                  <i class="icon-heart"></i>喜欢
+                </a>
+              </div>
+              <span id="likes-count">256</span>
+            </div>
+        -->
+        <div class="otherLink">
+          <div class="previous">
+          </div>
+          <div class="next">
+          </div>
+        </div>
+        <div class="comments" id="comments">
+          
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  const gitalk = new Gitalk({
+    clientID: '8888a8888',
+    clientSecret: '8888886666666',
+    repo: 'xxxx.github.io',
+    owner: 'admin',
+    admin: ['admin'],
+    id: location.pathname,      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false
+  })
+
+  gitalk.render('comments');
+</script>
+
+
+        </div>
+      </div>
+    </div>
+   
+</main>
+<div class="footer">
+  <div class="info">
+    <p>
+    <a href="https://hexo.io"> Hexo </a> 强力驱动 |
+      <a href="https://github.com/Youthink/hexo-themes-yearn"> Yearn </a>
+      主题
+    </p>
+    <p>&copy;2013-2018 某某的博客 京ICP备xxxxxx号</p>
+  </div>
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script>//console
+  var consoleConfig = '\n欢迎访问 https://hufangyun.com ，围观小猿大圣的博客(づ｡◕‿‿◕｡)づ！\n,\n本博客使用 %cHexo%c 搭建，博客主题为小猿大圣开发的 %chexo-themes-yearn%c ~~~ 🎉🎉🎉 \n\n源码 https://github.com/Youthink/hexo-themes-yearn \n\n如果喜欢可以 star 支持一下 ❤️~\n,\n扫描下面的二维码，在手机上查看博客！\n,https://static.hufangyun.com/blog-url-qrcode-180-180.png,\n 想知道这个效果如何实现的？博客内搜索 console 彩蛋 🚀 ！\n'.split(',');
+  var canConsole = true;
+  var consoleInfo = (function(consoleConfig) {
+  if (!canConsole || !consoleConfig || consoleConfig.length < 1) {
+    return;
+  }
+  var consoleColor = '#6190e8';
+  var _console;
+  var backgroundTextStyle = 'padding: 1px 5px;color: #fff;background: ' + consoleColor + ';'
+  var textStyle = 'color: ' + consoleColor + ';';
+
+  consoleConfig.map(o => {
+    var num = (o.match(/%c/g) || []).length;
+    if(/^http(s)?:\/\//.test(o)) {
+      console.log('%c     ', 'background: url(' + o + ') no-repeat left center;font-size: 180px;');
+      return;
+    }
+    if (num > 0) {
+      var logArguments = [];
+      for (var i = 0; i < num; i++) {
+        if (i % 2 === 0) {
+          logArguments.push(backgroundTextStyle);
+        } else {
+          logArguments.push(textStyle);
+        }
+      }
+      (_console = console).log.apply(_console, ['%c' + o, textStyle].concat(logArguments));
+      return;
+    }
+    console.log('%c' + o, textStyle);
+  });
+}(consoleConfig));</script><script type="text/javascript" src="/./js/main.d9e3dd.js"></script>
+
+</body>
+</html>
